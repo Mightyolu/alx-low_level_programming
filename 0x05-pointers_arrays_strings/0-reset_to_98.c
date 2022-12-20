@@ -1,16 +1,11 @@
-Main.h
-#ifndef MAIN_H
-#define MAIN_H
-void reset_to98(int*n);
-void swap_int(*a, int *b);
-int_strlen(char *s);
-void_puts(char *str);
-int_putchar(char c);
-void print_rev(char *s);
-void rev_string(char *s);
-void puts_half(char *str);
-void print_array(int *a, int n);
-char *_strcpy(char *dest, char *src);
-void puts2(char *str);
-int_atoi(char *s);
-#endif
+#include *main.h*
+/**
+ * reset_to_98-Resets the value of a variable back to 98.
+ * @n:Variable to be reset.
+ * Return:Void.
+ */
+
+void reset_to_98(int *n)
+{
+	*n = 98;
+}
