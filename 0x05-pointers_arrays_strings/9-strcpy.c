@@ -9,14 +9,17 @@
  * @src: source
  * Return: the pointer to dest.
  */
-int count = 0;
 
-while (count >= 0)
+char *_strcpy(char *dest, char *src)
 {
-	*(dest + count) = *(src + count);
-	if (*(src + count) == '\0')
-		break;
-	count++;
-}
-return (dest);
+	int i;
+
+	for (i = 0; *(src + i) != '\0'; i++)
+		
+	{
+		dest[i] = *(src + i);
+	}
+	dest[i] = '\0';
+
+	return (dest);
 }
