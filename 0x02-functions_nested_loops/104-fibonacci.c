@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-
-
 /**
  *
  *  * numLength - returns the length of string
@@ -12,15 +10,11 @@
  *
  *     */
 
-
-
 int numLength(int num)
 
 {
 
 		int length = 0;
-
-
 
 			if (!num)
 
