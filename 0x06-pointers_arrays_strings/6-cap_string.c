@@ -17,14 +17,15 @@ char *cap_string(char *s)
 
 	while (*(s + count) != '\0')
 	{
-		if (*(s + count) == sep_words[i])
+		for (i = 0; i < 13; i++)
 		{
-			if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
-				*(s + (count + 1)) = *(s + (count + 1)) - 32;
-			break;
+			if (*(s + count) == sep_words[i])
+			{
+				if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+					*(s + (count + 1)) = *(s + (count + 1)) - 32;
+				break;
+			}
 		}
 	}
 	count++;
-}
-return (s);
 }
