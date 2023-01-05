@@ -2,7 +2,9 @@
 
 /**
  * _puts_recursion - Prints a string
+ *
  * @s: Pointer block of memory to fill
+ *
  * Return: Void
  */
 
