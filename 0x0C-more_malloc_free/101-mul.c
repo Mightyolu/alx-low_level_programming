@@ -109,10 +109,10 @@ void print_array(char *a, int nb)
 }
 
 /**
- * main - print the multiplication of 2 numbers.
- * @argc: array length.
- * @argv: array.
- * Return: 0.
+ *main - print the multiplication of 2 numbers.
+ *@argc: array length.
+ *@argv: array.
+ *Return: 0.
  */
 
 int main(int argc, char *argv[])
