@@ -1,19 +1,15 @@
-#include "dog.h"
+#include <stdio.h>
 #include <stdlib.h>
+#include "dog.h"
 
 /**
- * free_dog - free memory of dog
- * @d: pointer to dog
+ * print_dog - a function that prints a struct dog
+ * @d: a pointer to the struct 'my_dog'
+ * Return: returns nothing
  */
-
-void free_dog(dog_t *d)
+void print_dog(struct dog *d)
 {
-	if (d)
-	{
-		if (d->name)
-			free(d->name);
-		if (d->owner)
-			free(d->owner);
-		free(d);
-	}
-}
+	if (d == NULL)
+
+
+
