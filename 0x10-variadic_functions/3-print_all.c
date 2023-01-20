@@ -1,101 +1,36 @@
-#include "variadic_functions.h"
-
-
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
+ * print_strings - a function that prints strings, followed by a new line
  *
- *  * print_all - prints anything.
+ * @separator: pointer to a constant separator
+ * @n: start of input variables
  *
- *   * @format: a list of types of arguments passed to the function.
- *
- *    *
- *
- *     * Return: no return.
- *
- *      */
+ * Return: nothing
+ */
 
-void print_all(const char * const format, ...)
-
+void print_strings(const char *separator, const unsigned int n, ...)
 {
+	va_list ap;
+	unsigned int index;
+	char *str;
 
-		va_list valist;
+	/* iterate the argument list from the start */
+	va_start(ap, n);
 
-			unsigned int i = 0, j, c = 0;
+	for (index = 0; index < n; index++)
+	{
+		str = va_arg(ap, char *);
+		if (str)
+			printf("%s", str);
+		else
+			printf("(nil)");
 
-				char *str;
-
-					const char t_arg[] = "cifs";
-
-
-
-						va_start(valist, format);
-
-							while (format && format[i])
-
-									{
-
-											j = 0;
-
-												while (t_arg[j])
-
-														{
-
-																if (format[i] == t_arg[j] && c)
-
-																		{
-
-																				printf(", ");
-
-																					break;
-
-																						} j++;
-
-																	}
-
-													switch (format[i])
-
-															{
-
-																	case 'c':
-
-																				printf("%c", va_arg(valist, int)), c = 1;
-
-																						break;
-
-																							case 'i':
-
-																								printf("%d", va_arg(valist, int)), c = 1;
-
-																										break;
-
-																											case 'f':
-
-																												printf("%f", va_arg(valist, double)), c = 1;
-
-																														break;
-
-																															case 's':
-
-																																str = va_arg(valist, char *), c = 1;
-
-																																		if (!str)
-
-																																					{
-
-																																								printf("(nil)");
-
-																																										break;
-
-																																												}
-
-																																				printf("%s", str);
-
-																																						break;
-
-																																								} i++;
-
-														}
-
-								printf("\n"), va_end(valist);
-
+		if (separator && index != n - 1)
+			printf("%s", separator);
+	}
+	/*clean up*/
+	va_end(ap);
+	printf("\n");
 }
