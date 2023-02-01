@@ -1,42 +1,36 @@
-#include "lists.h"
-
+ #include "lists.h"
 /**
- * find_listint_loop - finds the loop in a linked list.
- * @head: head of a list.
- *
- * Return: the address of the node where the loop starts.
+ * print_listint_safe - function that prints a linked list with a loop safely.
+ * @head: pointer to the 1st node of the linked list
+ * Return: new_node
  */
-listint_t *find_listint_loop(listint_t *head)
+size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *p2;
-	listint_t *prev;
+	const listint_t *tmp_n = NULL;
+	const listint_t *l_n = NULL;
+	size_t counter = 0;
+	size_t new_n;
 
-	p2 = head;
-	prev = head;
-	while (head && p2 && p2->next)
+	tmp_n = head;
+	while (tmp_n)
 	{
-		head = head->next;
-		p2 = p2->next->next;
-
-		if (head == p2)
+		printf("[%p] %d\n", (void *)tmp_n, tmp_n->n);
+		counter++;
+		tmp_n = tmp_n->next;
+		l_n = head;
+		new_n = 0;
+		while (new_n < counter)
 		{
-			head = prev;
-			prev =  p2;
-			while (1)
+			if (tmp_n == l_n)
 			{
-
-				p2 = prev;
-				while (p2->next != head && p2->next != prev)
-				{
-					p2 = p2->next;
-				}
-				if (p2->next == head)
-					break;
-
-				head = head->next;
+				printf("-> [%p] %d\n", (void *)tmp_n, tmp_n->n);
+				return (counter);
 			}
-			return (p2->next);
+			l_n = l_n->next;
+			new_n++;
 		}
+		if (!head)
+			exit(98);
 	}
-	return (NULL);
+	return (counter);
 }
